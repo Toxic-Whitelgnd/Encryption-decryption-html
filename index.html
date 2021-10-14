@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Signup</title>
+    <link rel="stylesheet" href="Login_page_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Teko&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/97397352ad.js" crossorigin="anonymous"></script>
+    
+    <script src="Login_js.js"></script>
+
+</head>
+<body>
+    
+    <center>
+    <div class="log">
+        <h1 id="header">Login | Signup <i class="fas fa-users"></i>
+        </h1>       
+    </div>
+    </center>
+    <center>
+    <div class="container">
+        <div class="usr_entry">
+            <label id="email">EMAIL</label>
+            <input id="email_field" type="email" ><br></br>
+        </div>
+        <div class="pass_entry">
+            <label id="password">PASSWORD</label>
+            <input id="password_field" type="password"><span><i id="eye" class="fas fa-eye" aria-hidden="false"></i>
+            </span><br><br>
+        </div>
+        <div class="button1_2">
+            <button onclick="login()" id="login_" >Login</button><br></br>
+            <button type ="submit" onclick="signup()" id="signup_" >Signup</button><br></br>
+        </div>
+        <!-- For loading ! -->
+
+    </div>
+    </center>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+        import {  getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
+        import { getDatabase , ref, onValue,get,child } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyC7LDr35050odGjL650IkywbgANvpntjII",
+          authDomain: "encryptiononwebsite.firebaseapp.com",
+          databaseURL: "https://encryptiononwebsite-default-rtdb.firebaseio.com",
+          projectId: "encryptiononwebsite",
+          storageBucket: "encryptiononwebsite.appspot.com",
+          messagingSenderId: "296077324273",
+          appId: "1:296077324273:web:623acbd9f4c77fb2885e50"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbref = ref(db);
+        const auth = getAuth(app);
+
+        //logining function
+        document.getElementById("login_").addEventListener('click',function (){
+
+            const email1 = document.getElementById("email_field").value
+            const password1 = document.getElementById("password_field").value
+
+            signInWithEmailAndPassword(auth, email1, password1)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log("logined")
+                alert("Logged in Successfully")
+                document.location.href="Context.html"
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage+errorCode)
+                alert("CHECK YOUR PASSWORD OR EMAIL OR SIGNUP!!")
+            });
+
+
+        })
+        //retriving the data from ddatabase
+        document.getElementById("login_").addEventListener('click',function(){
+
+            const email1 = document.getElementById("email_field").value
+
+            //converting to string
+            var a = String(email1)
+            var b = a.split('@')
+            var c = b[0]
+            //need to start here
+
+            var email_name = sessionStorage.setItem("email_name",c)
+            console.log(email_name)
+            console.log("Went successfully")
+
+            get(child(dbref, `users/`+ c + '/username')).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(snapshot.val());
+                let data = snapshot.val()
+                var u_name = sessionStorage.setItem("username",data)
+            } else {
+                console.log("No data available");
+            }
+            }).catch((error) => {
+            console.error(error);
+            });
+
+
+        })
+    
+      </script>
+
+    
+    <footer >
+        <div class="logo_aka">
+            <img id="img_logo"src="logos/rsz_akatsuki-emblem_1.png">
+         
+        <p id="foo">Devolped By Akatsuki Organisation Development</p>
+
+        </div>  
+        <div class="icons">
+            <a href="https://github.com/Toxic-Whitelgnd"><i class="fab fa-github" id="git"></i></a>
+            <a href="https://www.youtube.com/watch?v=LR1wDgzcM08"><i class="fab fa-youtube" id="yt"></i></a>
+            <a href="https://villains.fandom.com/wiki/Akatsuki"><i class="fab fa-google" id="gol"></i></a>
+        </div>
+        
+    </footer>
+    
+  
+</body>
+</html>
+

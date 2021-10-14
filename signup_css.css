@@ -1,0 +1,155 @@
+.header{
+    font-size: 40px;
+    font-family:Bebas Neue;
+    letter-spacing: 4px;
+    text-align: center;
+    background-color: forestgreen;
+    border-style: inset;
+    text-shadow: chocolate;
+    background-image: url('images/signup_head.jpg'); /* need to change image*/
+    background-position: center;
+    color: rgb(70, 105, 219);
+    outline-offset: 0px;
+    offset-distance: 0px;
+    margin: auto;
+    
+}
+*{
+    margin: 0%;
+    
+}
+/* Container fields */
+.container{
+    width: 280px;
+    height: 230px;
+    border: 15px solid rgb(76, 3, 247);
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    align-items: center;
+    background-color:rgb(33, 207, 91);
+    letter-spacing: 3px; 
+    background-image: url('images/signup_header_back.jpg');
+    background-position: center;
+    background-size: cover; 
+    display: inline-block;
+    image-resolution: 200px;   
+    border-top-left-radius:40px ;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-top-right-radius: 40px;  
+    border-top-color:blue ;
+    border-bottom-color: blue;
+    border-left-color: rgb(53, 116, 199);
+    border-right-color:rgb(53, 116, 199) ;
+    border-bottom-left-radius: 60px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius:15px ;
+    border-top-right-radius: 60px;
+}
+body{
+    background-image: url('images/signup_back.jpg');
+    background-position: center;
+    background-size: cover;
+}
+/* Labels and input fields */
+label{
+    background-color: rgb(56, 53, 221);
+    color: black;
+    font: 700;
+    border-radius: 18px;
+    float: left;
+}
+.user_field{
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#username{
+    padding: 3px;
+    margin-left: -40px;
+}
+.email_field{
+    padding: 10px;
+    margin-bottom: 40px;
+}
+#email{
+    padding: 3px;
+    margin-left: -20px;
+}
+.password_field{
+
+    margin-bottom: 20px;
+
+}
+#password{
+    padding: 3px;
+    margin-left: -30px;
+
+}
+#signup_details{
+    padding: 12px;
+    margin: auto;
+    display: inline-block;
+}
+/* Now For Buttons */
+.button_bck_sign{
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    
+}
+#signup_btn{
+    margin-right: 10px;
+    background-color: black;
+    color: blue;
+    border-radius: 15px;
+    padding-left: 2px;
+    
+    border-color: blue;
+    border-width: 7px;
+    border-style: solid;
+    letter-spacing: 2px;
+}
+#signup_btn:hover{
+    background-color: blue;
+    color: black;
+    border: rgb(53, 116, 199) solid 5px;
+}
+#back_btn{
+    margin-right: 10px;
+    background-color: black;
+    color: blue;
+    border-radius: 15px;
+    border-width: 7px;
+    border-style: solid;
+    padding-left: 2px;
+    border-color: blue;
+    letter-spacing: 2px;
+}
+#back_btn:hover{
+    background-color: blue;
+    color: black;
+    border: rgb(53, 116, 199) solid 5px;
+}
+#clear_btn{
+    margin-right: 10px;
+    background-color: black;
+    color: blue;
+    border-radius: 15px;
+    border-width: 7px;
+    border-style: solid;
+    padding-left: 2px;
+    letter-spacing: 2px;
+    border-color: blue;
+
+}
+#clear_btn:hover{
+    background-color: blue;
+    color: black;
+    border: rgb(53, 116, 199) solid 5px;
+}
+#signup_image{
+    color: rgb(26, 218, 218);
+}

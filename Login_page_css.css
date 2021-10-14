@@ -1,0 +1,224 @@
+.log{
+    font-size: 40px;
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    background-color: forestgreen;
+    border-style: inset;
+    text-shadow: chocolate;
+    background-image: url('images/log_back.jpg');
+    background-position: center;
+    color: rgb(21, 56, 172);
+    outline-offset: 0px;
+    offset-distance: 0px;
+    margin: auto;
+    min-width: 422px;
+    
+
+}
+#header{
+    color:teal;
+}
+
+body{
+    background-image: url('images/body_back.jpg');
+    background-size: cover;
+}
+
+.container{
+    width: 280px;
+    height: 180px;
+    border: 15px solid rgb(76, 3, 247);
+    padding: 60px;
+    margin: auto;
+    margin-top: 30px;
+    align-items: center;
+    background-color:rgb(33, 207, 91);
+    letter-spacing: 3px; 
+    background-image: url('images/login_cont_back.jpg');
+    background-position: center;
+    background-size: cover; 
+    image-resolution: 200px;   
+    border-top-left-radius:40px ;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-top-right-radius: 40px;     
+}
+.usr_entry{
+    text-align: center;
+    font-size: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 25px;  
+    font-weight: 100;  
+}
+label{
+    background-color: violet;
+    border-radius: 30px;
+    float: left;
+}
+.pass_entry{
+    text-align: center;
+    font-size: 10px;
+    margin-left: 10px;  
+    margin-top: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+#email{
+    padding: 5px;
+}
+#password{
+    padding: 5px;
+}
+.button1_2{
+    display: flex;
+    margin-top: 40px;
+    margin-left: 30px;
+    padding-left: 30px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease; 
+    
+}
+*{
+    margin: 0%;
+
+}
+
+#login:hover{
+    color: #ef0bf7;
+    border: #ff7a59 solid 1px;
+    background:rgb(35, 190, 218);
+  }
+#login_{
+    
+    background-color: rgb(37, 37, 206);
+    font-size: 12px;
+    font-family: cursive;
+    margin-right: 20px;
+    border-radius: 12px;
+        
+}
+#signup:hover{
+    color: rgb(211, 233, 15);
+    background-color:rgb(2, 163, 184) ;
+    -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+#signup_{
+   
+    font-size: 12px;
+    font-family: cursive;
+    margin-left: 20px;
+    background: #1a0bf0;  
+    border-radius: 12px;
+    opacity:0.5;
+    
+}
+footer{
+    
+    margin: auto;
+    margin-top: 0px;
+    height: auto;
+    min-width: 90vw;
+    max-width: 100vw;
+    padding-left: 100px;
+    word-spacing: 4px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 22px;
+    font-family: 'Staatliches', cursive;
+    background-color: black;
+    color: red;
+   
+}
+/* edieditng my logo */
+.logo_aka{
+   display: inline-flex;
+   margin: 0%;
+   
+}
+#foo{
+    margin-left: 10px;
+    text-align: center;
+}
+.icons{
+    
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.icons a{
+    color: red;
+}
+.icons a i{
+    font-size: 1.1 rem;
+    transition: color .4s ease;
+}
+.icons a:hover i{
+    color: blue;
+}
+
+#git{
+    margin-right: 30px;
+}
+#yt{
+    margin-right: 30px;
+}
+#gol{
+    margin-right: 30px;
+}
+#img_logo{
+    margin: 0%;
+}
+/* edieting the password field */
+span{
+    position: absolute;
+    right: 15px;
+    left: 260px;
+    transform: translate(0,-50%);
+    top: 5px;
+} 
+/* #eye{
+    font-size: 20%;
+
+} */
+.container-dot{
+    width: 110vw;
+    height: 100vh;
+    /* margin: 70px auto; */
+    justify-content: center;
+    margin: auto;
+    margin-left: 250px;
+    margin-top: 250px;
+     
+
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    background-color:white ;
+    display: inline-block;
+    border-radius: 50%;
+
+}
+.dot1{
+    background-color: red;
+    animation: jump-up 0.7s 0.1s linear infinite;
+}
+.dot2{
+    background-color: blue;
+    animation: jump-up 0.7s 0.2s linear infinite;
+}
+.dot3{
+    background-color: green;
+    animation: jump-up 0.7s 0.3s linear infinite;
+}
+@keyframes jump-up{
+    50%{
+        transform: translate(0,15px);
+    }
+}

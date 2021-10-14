@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Sign...up..page</title>
+    <link rel="stylesheet" href="signup_css.css">
+    <script src="https://kit.fontawesome.com/97397352ad.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <center>
+    <div class="header">
+    <center>
+        <h1>Signup<i id="signup_image"class="fas fa-user-plus"></i>
+        </h1>
+    </center>
+    </div>
+    </center>
+    <center>
+    <div class="container">
+        <form id="signup_details">
+            <div class="user_field">
+            <label id="username">Username</label>
+            <input id="username_field" type="text" placeholder="enter username"><br>
+            </div>
+            <div class="email_field">
+            <label id="email">Email</label >
+            <input id="email_field" type="email" placeholder="test1234@gmail.com"><br>
+            </div>  
+            <div class="password_field">
+            <label id="password">password</label>
+            <input id="password_field" type="password"><br>
+            </div>
+        </form>
+    </div>
+    </center>
+    <center>
+        <div class="button_bck_sign">
+            <div class="signup">
+                <button id="signup_btn" onclick="signup()">Signup</button>
+            </div>
+            <div class="back">
+                <button id="back_btn" onclick="back_()">⬅Back</button>
+            </div>
+            <div class="clear_">
+                <button id="clear_btn" onclick="clear_()">Clear🗑</button>
+            </div>
+        </div>
+    </center>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+        import { getDatabase , ref, set } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+        import {  getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyC7LDr35050odGjL650IkywbgANvpntjII",
+          authDomain: "encryptiononwebsite.firebaseapp.com",
+          databaseURL: "https://encryptiononwebsite-default-rtdb.firebaseio.com",
+          projectId: "encryptiononwebsite",
+          storageBucket: "encryptiononwebsite.appspot.com",
+          messagingSenderId: "296077324273",
+          appId: "1:296077324273:web:623acbd9f4c77fb2885e50"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+        //creating a new authetication
+        document.getElementById("signup_btn").addEventListener('click',function (){
+
+        const usrname = document.getElementById("username_field").value    
+        const email = document.getElementById("email_field").value
+        const password = document.getElementById("password_field").value
+
+        var password_len_check = password_len(password)
+        var email_check = validate_email(email)
+
+
+        if (password_len_check == true && email_check == true){
+            createUserWithEmailAndPassword(auth, email, password)    
+            .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log("created")
+            var a = 1 
+            alert("Signed Up successfully!!😚 Wait for a second to reload the pages!😀")
+            document.location.href="index.html"
+            
+            
+            })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode+errorMessage);
+        });
+        }
+        else{
+            alert("Enter a password Atleaat 6 charachters or Check your Email!")
+        }
+        
+
+        }
+        )
+        
+        //inserting into the realtime database!!
+        document.getElementById("signup_btn").addEventListener('click',function writeUserData(email1,password1,username1) {
+
+        email1 = document.getElementById("email_field").value
+        password1 = document.getElementById("password_field").value
+        username1 = document.getElementById("username_field").value
+
+        var password_len_check = password_len(password1)
+        var email_check = validate_email(email1)
+        
+        var a = String(email1)
+        var b = a.split('@')
+        var c = b[0]
+
+        String(email1)
+        String(password1)
+        console.log(String(username1))
+        var usr_vali = username_validate(username1)
+        console.log("came after strings")
+        
+        
+
+        if (password_len_check == true && email_check == true && usr_vali == true){
+            console.log("came inside database")
+            set(ref(db, 'users/' + c), {
+                username: username1,
+                email: email1,
+                password:password1
+            });
+            }
+        else {
+            alert("check your Email and Password or Fill your Fields")
+        }    
+        }
+        )
+        //checking the password lenght
+        function password_len(password){
+        let pass_len = password.length
+        console.log(pass_len)
+        if(pass_len<6){
+            return false
+        }
+        else
+            return true
+            console.log("Password is verified")
+        }
+        //checking a valid email
+        function validate_email(email){
+        let expression = /^[^@]+@\w+(\.\w+)+\w$/
+        if (expression.test(email) == true){
+            return true //email is valid
+            console.log("email is verified")
+        }
+        else
+            return false //email is not walid
+        }
+        //checking the username validate or not
+        function username_validate(user_name){
+        if(user_name != ''){
+            console.log("It is not empty")
+            return true}
+        else {
+            console.log("it is empty")
+            alert("Enter a user Name")    
+            return false  }
+        }  
+
+      </script>
+    <script  src="signup_js.js"></script>
+
+</body>
+</html>

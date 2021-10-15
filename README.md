@@ -1,4 +1,4 @@
 # Encryption-decryption-html-css-js
-#Run the view deployment , to see the output
+#Click on the Enviroment,click on View Development to see the output
 #Full Stack Development
 #Created by Pain

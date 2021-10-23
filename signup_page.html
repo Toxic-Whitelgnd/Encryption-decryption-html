@@ -113,10 +113,10 @@
         )
         
         //inserting into the realtime database!!
-        document.getElementById("signup_btn").addEventListener('click',function writeUserData(email1,content1,username1) {
+        document.getElementById("signup_btn").addEventListener('click',function writeUserData(email1,password1,username1) {
 
         email1 = document.getElementById("email_field").value
-        content1 = document.getElementById("password_field").value
+        password1 = document.getElementById("password_field").value
         username1 = document.getElementById("username_field").value
 
         var password_len_check = password_len(content1)
@@ -127,7 +127,7 @@
         var c = b[0]
 
         String(email1)
-        String(content1)
+        String(password1)
         console.log(String(username1))
         var usr_vali = username_validate(username1)
         console.log("came after strings")
@@ -139,7 +139,7 @@
             set(ref(db, 'users/' + c), {
                 username: username1,
                 email: email1,
-                password:content1
+                password:password1
             });
             }
         else {

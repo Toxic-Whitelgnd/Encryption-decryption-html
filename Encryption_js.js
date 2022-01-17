@@ -108,7 +108,7 @@ function get_info(){
             let charcodestr = Number(charcode)
             let keys = Number(key)
             let keyss = (charcodestr + keys)
-            convert =( (keyss - 91)% 6 + 96 )
+            convert =( (keyss - 91)% 6 + 91 )
             result = String.fromCharCode(convert)
             console.log("The for number:" + result)
             enc +=result

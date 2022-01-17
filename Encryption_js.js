@@ -73,7 +73,7 @@ function get_info(){
             enc +=result
           
         console.log(enc) }
-        else if(charcode >='1'.charCodeAt(0) && charcode<='9'.charCodeAt(0)){
+        else if(charcode >='0'.charCodeAt(0) && charcode<='9'.charCodeAt(0)){
             let charcodestr = Number(charcode)
             let keys = Number(key)
             let keyss = (charcodestr + keys)
